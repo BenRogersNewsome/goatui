@@ -1,5 +1,5 @@
 {
-  "name": "goatui",
+  "name": "@goatnotes/goatui",
   "version": "0.0.1",
   "description": "A UI library...",
   "main": "dist/index.js",
