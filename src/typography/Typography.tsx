@@ -14,14 +14,11 @@ const ResponsiveResizer = styled.span<ResponsiveResizerProps>`
     font-size: 1em;
 
     @media screen and (min-width: ${props => props.lowerResizeLimit}px) {
-        html {
-            font-size: calc(1em - ${props => props.emToPx/2} * (${props => props.upperResizeLimit}px - 100vw) / (${props => props.upperResizeLimit} - ${props => props.lowerResizeLimit}));
-        }
+        font-size: calc(1em - ${props => props.emToPx/2} * (${props => props.upperResizeLimit}px - 100vw) / (${props => props.upperResizeLimit} - ${props => props.lowerResizeLimit}));
     }
+    
     @media screen and (min-width: ${props => props.upperResizeLimit}px) {
-        html {
-            font-size: 1em;
-        }
+        font-size: 1em;
     } 
 `
 
@@ -30,7 +27,7 @@ const ResponsiveResizer = styled.span<ResponsiveResizerProps>`
 //     upperResizeLimit: 1000
 // }
 
-type HeadingProps = ResponsiveResizerProps & {
+type HeadingProps = {
     lowerResizeLimit?: number,
     upperResizeLimit?: number,
     className?: string,

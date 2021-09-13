@@ -40,9 +40,7 @@ module.exports = {
           test: /\.tsx?$/,
           use: {
             loader: 'ts-loader',
-            options: {
-                configFile: 'tsconfig.demo.json'
-            }
+            
           },
           exclude: /node_modules/,
         },
@@ -69,15 +67,15 @@ module.exports = {
       extensions: ['.js', '.jsx', '.tsx', '.ts']
     },
     
-	mode: 'development',
-	devtool: 'inline-source-map',
-	devServer: {
-        static: {
-            directory: path.join(__dirname, 'demo', 'public')
-        },
-		compress: true,
-		port: 9000,
-		host: 'localhost',
-		historyApiFallback: true
-	},
+    mode: 'development',
+    devtool: 'inline-source-map',
+    devServer: {
+          static: {
+              directory: path.join(__dirname, 'demo', 'public')
+          },
+      compress: true,
+      port: 9000,
+      host: 'localhost',
+      historyApiFallback: true
+    }
   };
