@@ -22,7 +22,15 @@ module.exports = {
     plugins:[
         new NodePolyfillPlugin(),
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+          templateContent: `
+            <html>
+              <body>
+                <div id='root'></div>
+              </body>
+            </html>
+          `
+        })
     ],
     module: {
       rules:[
@@ -37,10 +45,12 @@ module.exports = {
                   }
         },
         {
-          test: /\.tsx?$/,
+          test: /\.tsx?|.ts$/,
           use: {
             loader: 'ts-loader',
-            
+            options: {
+              configFile: "tsconfig.demo.json"
+            }
           },
           exclude: /node_modules/,
         },
@@ -53,6 +63,10 @@ module.exports = {
                           presets: ['@babel/preset-env', '@babel/preset-react']
                       }
                   }
+        },
+        {
+          test: /\.css$/i,
+          use: ["style-loader", "css-loader"],
         }
       ],
     },
