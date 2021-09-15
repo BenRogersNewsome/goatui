@@ -15,10 +15,13 @@ type HeadingProps = AbstractTextBaseProps & {
     tag?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
 }
 
+/**
+ * A heading component which wraps the AutoResizer and implements themeing.
+ */
+
 export const Heading : React.FC<HeadingProps> = ({ className, children, lowerResizeLimit=320, upperResizeLimit=1000, tag='h1'}) => {
     const parentElement = useRef<HTMLHeadingElement>(null);
     const parentFontSize = useParentFontSize(parentElement);
-    console.log(tag)
     
     return(
         <h1 className={className} ref={parentElement}>
